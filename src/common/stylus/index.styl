@@ -1,0 +1,65 @@
+@require './variables.styl'
+
+.top-rainbow
+  width: 100%
+  height: 6px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  background-image: url('~common/images/rainbow.png')
+
+.icon
+  display: inline-block
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+
+.vue-better-calendar
+  margin-top:20px
+  font-size:14px
+  padding:0!important
+  .calendar-container
+    .calendar-header
+      box-sizing:border-box
+      padding:10px 0
+      background-color:$color-purple
+      .calendar-ctl
+        .calendar-btn
+          padding:0 10px
+        .calendar-ctl-month
+          .month
+            .select-month-panel
+              .item
+                font-size:18px
+                color:#fff
+          .year
+            font-size:14px
+            color:#fff
+    .calendar-body
+      .calendar-dates
+        .date-row
+          ul
+            .calendar-day
+              &.is-today
+                background-color: $color-purple
+                border:2px solid $color-purple
+              &.selected
+                &:after
+                  border: none
+    .calendar-body
+      .calendar-dates
+        .date-row
+          ul
+            .calendar-day
+              &.selected
+                &.selected
+                  background-color: #d4d4d4
+                  border:none
+                  .text
+                    &.text-day
+                      color: #b4b4b4
+
+.cube-pullup-wrapper
+  .before-trigger
+    font-size:16px
+    color:$color-purple

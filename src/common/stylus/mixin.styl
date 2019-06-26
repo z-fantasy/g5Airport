@@ -1,0 +1,179 @@
+border-1px($color = #ccc, $radius = 0, $style = solid)
+  position: relative
+  &::after
+    content: ""
+    pointer-events: none
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    transform-origin: 0 0
+    border: 1PX $style $color
+    border-radius: $radius
+    box-sizing border-box
+    width 100%
+    height 100%
+    @media (min-resolution: 2dppx)
+      width: 200%
+      height: 200%
+      border-radius: $radius * 2
+      transform: scale(.5) translateZ(0)
+    @media (min-resolution: 3dppx)
+      width: 300%
+      height: 300%
+      border-radius: $radius * 3
+      transform: scale(.333) translateZ(0)
+
+border-top-1px($color=#ebebeb,$style=solid)
+  position: relative
+  &::before
+    content: ""
+    display: block
+    position: absolute
+    border-top: 1PX $style $color
+    left: 0
+    top: 0
+    width: 100%
+    transform-origin: 0 top
+    @media (min-resolution: 2dppx)
+      width: 200%
+      transform: scale(.5) translateZ(0)
+    @media (min-resolution: 3dppx)
+      width: 300%
+      transform: scale(.333) translateZ(0)
+
+border-right-1px($color=#f5f5f5,$style=solid)
+  position: relative
+  &::after
+    content: ""
+    display: block
+    position: absolute
+    border-right: 1PX $style $color
+    top: 0
+    right: 0
+    height: 100%
+    transform-origin: right 0
+    @media (min-resolution: 2dppx)
+      height: 200%
+      transform: scale(.5) translateZ(0)
+    @media (min-resolution: 3dppx)
+      height: 300%
+      transform: scale(.333) translateZ(0)
+
+border-bottom-1px($color=#ebebeb,$style=solid)
+  position: relative
+  &::after
+    content: ""
+    display: block
+    position: absolute
+    border-bottom: 1PX $style $color
+    left: 0
+    bottom: 0
+    width: 100%
+    transform-origin: 0 bottom
+    @media (min-resolution: 2dppx)
+      width: 200%
+      transform: scale(.5) translateZ(0)
+    @media (min-resolution: 3dppx)
+      width: 300%
+      transform: scale(.333) translateZ(0)
+
+border-left-1px($color=#f5f5f5,$style=solid)
+  position: relative
+  &::before
+    content: ""
+    display: block
+    position: absolute
+    border-left: 1PX $color $style
+    top: 0
+    left: 0
+    height: 100%
+    @media (min-resolution: 2dppx)
+      height: 200%
+      transform: scale(.5) translateZ(0)
+    @media (min-resolution: 3dppx)
+      height: 300%
+      transform: scale(.333) translateZ(0)
+
+border-none()
+  &::before
+    display: none
+  &::after
+    display: none
+
+flex-fix()
+  flex: 1
+  flex-basis: 0.000000001px
+  width: 1%
+
+touch-active(type = orange)
+  if (type == orange)
+    &:active
+      color: #fcc1a6
+      background-color: rgba(250, 143, 84, .04)
+  else
+    &:active
+      color: #c6c6c6
+      background-color: rgba(0, 0, 0, .04)
+
+hide-scrollbar()
+  &::-webkit-scrollbar
+    width: 0
+    height: 0
+
+bg-image($url, $ext = ".png")
+  background-image: url($url + "@2x" + $ext)
+  @media (min-resolution: 3dppx)
+    background-image: url($url + "@3x" + $ext)
+
+functions = constant env
+safe-area-fn(fn, position)
+  s("%s(safe-area-inset-%s)", fn, position)
+safe-area-mixin(property, position, important = false)
+  for fn in functions
+    {property} safe-area-fn(fn, position) important == true ? !important : unquote("")
+
+txt-overflow-1()
+  display: -webkit-box
+  overflow: hidden
+  text-overflow: ellipsis
+  word-wrap: break-word
+  white-space: normal !important
+  -webkit-line-clamp: 1
+  -webkit-box-orient: vertical
+
+txt-overflow-2()
+  display: -webkit-box
+  overflow: hidden
+  text-overflow: ellipsis
+  word-wrap: break-word
+  white-space: normal !important
+  -webkit-line-clamp: 2
+  -webkit-box-orient: vertical
+
+txt-overflow-3()
+  display: -webkit-box
+  overflow: hidden
+  text-overflow: ellipsis
+  word-wrap: break-word
+  white-space: normal !important
+  -webkit-line-clamp: 3
+  -webkit-box-orient: vertical
+txt-omit()
+  overflow: hidden
+  text-overflow:ellipsis
+  white-space: nowrap
+font-break()
+  work-wrap: break-word
+  word-break: break-all
+  text-align: inherit
+bg-image-props()
+  background-size: 100% auto
+  background-repeat: no-repeat
+  background-position: center
+
+clear-fix()
+  &::after
+    content: ""
+    display: table
+    clear: both

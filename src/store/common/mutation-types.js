@@ -1,0 +1,4 @@
+export const SET_LOADING_STATUS = 'SET_LOADING_STATUS'
+
+export const SET_IMG_HOST = 'SET_IMG_HOST'
+export const SET_SHOW_BIND = 'SET_SHOW_BIND'
